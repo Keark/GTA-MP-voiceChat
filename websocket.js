@@ -41,9 +41,17 @@ module.exports = class WebSocket {
           const tempPlayer = players[i];
 
           // Check if the player is in range of the speaking player
-          let playerDistanceToPointInRange = utility.playerDistanceToPointInRange(tempPlayer, config.directChatRadius, socket.player.position.x, socket.player.position.y, socket.player.position.z);
+          let playerDistanceToSpeaker = utility.playerDistanceToSpeaker(tempPlayer, socket.player, config.directChatRadius);
 
-          if(typeof playerDistanceToPointInRange !== 'number') {
+          if(typeof playerDistanceToSpeaker !== 'number') {
+            // not in range because it returned false
+            return;
+          }
+
+          // Get the direction where the speaker is
+          let playerDirectionToSpeaker = utility.playerDirectionToSpeaker(tempPlayer, socket.player);
+
+          if(typeof playerRotationToSpeaker !== 'number') {
             return;
           }
 
@@ -52,14 +60,15 @@ module.exports = class WebSocket {
             console.warn(`No recipient socket for networkId ${tempPlayer.networkId} found.`);
             return;
           }
-          playerSocket.get(tempPlayer.networkId).emit('audioData', {data: data.data, volume: (playerDistanceToPointInRange / (config.directChatRadius * config.directChatRadius))});
+
+          playerSocket.get(tempPlayer.networkId).emit('audioData', {data: data.data, rotationToSpeaker: {ground: playerDirectionToSpeaker, yAxis: 0}, volume: (playerDistanceToSpeaker / config.directChatRadius)});
         }
       });
 
       // Like a global voice chat
       // Temporary only for web testing the voice chat in general
       socket.on('web audioData', function(data) {
-        socket.broadcast.emit('web audioData', {data: data.data, volume: 1});
+        socket.broadcast.emit('web audioData', {data: data.data, rotationToSpeaker: {ground: 0, yAxis: 0}, volume: 1});
       });
 
       socket.on('set networkId', function(networkId) {

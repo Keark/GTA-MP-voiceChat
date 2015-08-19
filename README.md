@@ -8,7 +8,7 @@ But we will prepare as much as possible and adapt the client side part when GTA-
 
 ## Version
 
-0.2.1
+0.3.0
 
 ## Installation
 
@@ -17,16 +17,13 @@ But we will prepare as much as possible and adapt the client side part when GTA-
   - Check the `config.js` to configure the application
   - Run the STA
 
-## Todos
+## To do
 
  - GTA-MP client integration (+ remove the testing web server)
  - Code cleanup
  - Rewrite Recorder functions as a ES6 class
 
 ## Future Milestones
-
-##### 0.3.0
- - MP3 instead of WAV
 
 ##### 1.0.0
  - GTA-MP client integration
@@ -61,6 +58,11 @@ But we will prepare as much as possible and adapt the client side part when GTA-
 ##### 0.2.1 (14.08.2015)
  - Waffle added a way more performant way to store the sockets and associate them with the player and network id
 
+##### 0.3.0 server side part (19.08.2015)
+ - Added a way to calculate from which direction the speaker comes for later 3D emulation
+   - This currently only features a 2D way, I didn't included the Y-axis into all these calculations
+ - Rewrite of the utility function to determine the distance from the player to the speaker
+ - Added ugly named place holder for the Y-axis rotation to the speaker
 
 ## Scripts used
  - https://github.com/mattdiamond/Recorderjs
