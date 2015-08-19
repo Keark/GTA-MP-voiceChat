@@ -42,17 +42,17 @@ utility.playerRotationToSpeaker = (player, speaker) => {
   if(playerCoords.x === speakerCoords.x && playerCoords.z === playerCoords.z) {
     rotation = 0;
   } else if(playerCoords.x === speakerCoords.x) {
-    if(playerCoords.x > speakerCoords.x) {
-      rotation = 90;
-    } else {
-      rotation = 270;
-    }
-  }
-  else if(playerCoords.z === speakerCoords.z) {
     if(playerCoords.z > speakerCoords.z) {
       rotation = 180;
     } else {
       rotation = 0;
+    }
+  }
+  else if(playerCoords.z === speakerCoords.z) {
+    if(playerCoords.x > speakerCoords.x) {
+      rotation = 90;
+    } else {
+      rotation = 270;
     }
   }
   // The player is not on the same x- or z-axis so we need to calculate the rotation
