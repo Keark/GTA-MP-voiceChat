@@ -8,7 +8,7 @@ But we will prepare as much as possible and adapt the client side part when GTA-
 
 ## Version
 
-0.3.0
+0.4.0
 
 ## Installation
 
@@ -33,7 +33,7 @@ But we will prepare as much as possible and adapt the client side part when GTA-
 
 ## Changelog
 
-##### 0.1.0 (09.08.2015)
+##### 0.1 (09.08.2015)
 
  - First release
  - Created a global voice chat
@@ -46,7 +46,7 @@ But we will prepare as much as possible and adapt the client side part when GTA-
 ##### 0.1.2 (13.08.2015)
  - Added `networkId` property to the socket to associate the socket with the player
 
-##### 0.2.0 (14.08.2015)
+##### 0.2 (14.08.2015)
  - The sockets now has a property called `networkId` which contains the network id of the player.
  - You can now define the direct voice chat radius in the `config.js`
  - Added utility functions
@@ -58,11 +58,19 @@ But we will prepare as much as possible and adapt the client side part when GTA-
 ##### 0.2.1 (14.08.2015)
  - Waffle added a way more performant way to store the sockets and associate them with the player and network id
 
-##### 0.3.0 server side part (19.08.2015)
+##### 0.3 server side part (19.08.2015)
  - Added a way to calculate from which direction the speaker comes for later 3D emulation
    - This currently only features a 2D way, I didn't included the Y-axis into all these calculations
  - Rewrite of the utility function to determine the distance from the player to the speaker
  - Added ugly named place holder for the Y-axis rotation to the speaker
+
+#### 0.3 client side part (xx.xx.201x)
+ -
+
+##### 0.4 (15.10.2015)
+ - Fixed documentation
+ - Fixed styling issues
+ - Moved sockets to the player object
 
 ## Scripts used
  - https://github.com/mattdiamond/Recorderjs

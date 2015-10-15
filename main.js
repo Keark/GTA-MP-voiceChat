@@ -13,8 +13,9 @@ let Webserver = require('./webserver');
 
 /**
  * Entry point
- * @param number port to listen the websocket on
- * @param number port to listen the development web server on
+ * @param {number} port to listen the websocket on
+ * @param {number} webserverPort to listen the development web server on
+ * @return {void}
  */
 function main(port, webserverPort) {
     new Websocket(port);
